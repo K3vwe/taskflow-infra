@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile.dev
     image: taskflow-api
     env_file:
-      - .env-dev
+      - .env
     ports:
       - "8000:8000"
     volumes:
@@ -40,7 +40,7 @@ services:
   db:
     image: postgres:16
     env_file:
-      - .env-dev
+      - .env
     volumes:
       - tasktracker_postgres_data:/var/lib/postgresql/data
     healthcheck:
