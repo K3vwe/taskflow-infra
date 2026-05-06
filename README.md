@@ -25,8 +25,8 @@ This project follows a **multi-repository structure**:
 
 Clone all required repositories before running the system:
 
-* Frontend: GitHub → https://github.com/K3vwe/todo-ui
-* Backend: GitHub → https://github.com/K3vwe/todo_backend
+* Frontend: GitHub → https://github.com/K3vwe/taskflow-web
+* Backend: GitHub → https://github.com/K3vwe/taskflow-api
 * Infrastructure: (this repo)
 
 ---
@@ -54,8 +54,11 @@ Create a `.env` file inside the `infra/` directory:
 POSTGRES_DB=taskdb
 POSTGRES_USER=postgres
 POSTGRES_PASSWORD=postgres
-DATABASE_URL=postgresql://postgres:postgres@db:5432/taskdb
+POSTGRES_PORT=5432
 NEXT_PUBLIC_API_URL=http://localhost:8000
+FRONTEND_HOST/BACKEND_CORS_ORIGINS=http://localhost:3000
+NODE_ENV/ENVIRONMENT=development
+
 ```
 
 You can also copy from:
@@ -63,6 +66,12 @@ You can also copy from:
 ```
 .env.example
 ```
+## 🚨 Runtime Rules
+
+* Missing required variables → application must fail immediately
+* `POSTGRES_SERVER=db` is required for Docker networking
+* `NEXT_PUBLIC_API_URL` is exposed to the browser
+* `SECRET_KEY` must be changed in production
 
 ---
 
@@ -75,7 +84,7 @@ cd infra/docker
 docker compose -f docker-compose.dev.yml up --build
 ```
 
-### Services
+### 🧩 Services
 
 * Frontend → http://localhost:3000
 * Backend → http://localhost:8000
@@ -184,12 +193,12 @@ This project is designed to demonstrate:
 
 ---
 
-## 🏁 Quick Start (TL;DR)
+## 🏁 Quick Start
 
 ```bash
-git clone https://github.com/yourname/frontend.git
-git clone https://github.com/yourname/backend.git
-git clone https://github.com/yourname/infra.git
+git clone https://github.com/K3vwe/taskflow-web.git
+git clone https://github.com/K3vwe/taskflow-api.git
+git clone https://github.com/K3vwe/taskflow-infra.git
 
 cd infra
 docker compose -f docker-compose.dev.yml up --build

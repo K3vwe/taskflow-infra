@@ -1,0 +1,41 @@
+# =========================
+# 🔐 Environment files
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# 🐳 Docker
+# =========================
+docker-compose.override.yml
+docker-compose.*.override.yml
+
+# =========================
+# 🧪 Infrastructure state (Terraform / IaC)
+# =========================
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# =========================
+# 🧰 OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# 🧪 Logs / temp
+# =========================
+*.log
+*.tmp
+*.bak
+*.swp
